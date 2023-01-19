@@ -24,6 +24,37 @@ const Input = styled.input`
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
+  // const [user, setUser] = useState({email : "", password : ""});
+  /*
+    const onChange = (evnet) => {
+      const {name, value} = event.target;
+      setUser({
+        ...user,
+        [name] : value
+      });
+    }
+  */
+  /*
+    const onClick = async () => {
+      if(!user.email) return alert("이메일을 입력하세요.");
+      if(!user.password) return alert("비밀번호를 입력하세요.");
+      try{
+        const {data} = await axios.post("http://210.223.18.224:8003/auth/local", user)
+        if(!data) return alert("로그인 실패")
+        alert("로그인 성공")
+        movePage("/");
+      } catch(e){
+        console.log(e)
+        alert("Error 발생")
+      }
+    }
+  */
+  
+  /*
+    <input onChange={onChange} name="email"/>
+    <input onChange={onChange} name="password"/>
+  */
 
   const handleInputId = (e) => {
     setEmail(e.target.value);
@@ -34,6 +65,7 @@ function Login() {
   };
 
   const onClickLogin = () => {
+    // 여기 부분 빈값이 있어도 axios 실행됨.. return이 없음
     if (!email || !password) {
       alert("빈값이 있습니다.");
     }
